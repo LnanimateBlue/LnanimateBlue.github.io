@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    position: relative;
+  }
+
+  .time-display {
+    position: absolute;
+    top: 4%;
+    left: 18%;
+    color: white;
+    font-family: Arial, sans-serif;
+    z-index: 10;
+    text-align: left;
+  }
+
+  .year {
+    font-size: 1.2vw;
+    margin-bottom: 0.5vh;
+  }
+
+  .month-date {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .month {
+    font-size: 3.5vw;
+    font-weight: bold;
+  }
+
+  .date {
+    font-size: 1.5vw;
+    margin-left: 0.3vw;
+  }
+
+  .main-image {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  
