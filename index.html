@@ -1,12 +1,47 @@
+
+<img src="IMG/banner.jpg" class="main-image">
+
+
+
+
 <!doctype html>
 <html lang="zh">
 <head>
   <meta charset="utf-8">
   <title>fictional-lamp</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="time-display">
+    <div class="year" id="year"></div>
+    <div class="month-date">
+      <span class="month" id="month"></span>
+      <span class="date" id="date"></span>
+    </div>
+  </div>
+  <img src="IMG/banner.jpg" class="main-image">
   <h1>fictional-lamp</h1>
   <p>搭建中…… <p>
+
+  <script>
+    function updateTime() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = now.getMonth() + 1;
+      const date = now.getDate();
+
+      document.getElementById('year').textContent = year;
+      document.getElementById('month').textContent = month;
+      document.getElementById('date').textContent = '/' + date;
+    }
+
+    updateTime();
+    setInterval(updateTime, 1000);
+  </script>
 </body>
+
+
+
+
 </html>
 
