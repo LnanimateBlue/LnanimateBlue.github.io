@@ -13,10 +13,41 @@
       <span class="month" id="month"></span>
       <span class="date" id="date"></span>
     </div>
+    <div class="ampm" id="ampm"></div>
+  </div>
+  <div class="button-container button-1">
+    <img src="IMG/button.png" class="button-image">
+    <span class="button-text">ALL</span>
+  </div>
+  <div class="button-container tbutton">
+    <img src="IMG/tbutton.png" class="button-image" id="tbutton-img">
+  </div>
+  <div class="button-container button-2 hidden-buttons">
+    <img src="IMG/button.png" class="button-image">
+    <span class="button-text">图</span>
+  </div>
+  <div class="button-container button-3 hidden-buttons">
+    <img src="IMG/button.png" class="button-image">
+    <span class="button-text">文</span>
+  </div>
+  <div class="button-container button-4 hidden-buttons">
+    <img src="IMG/button.png" class="button-image">
+    <span class="button-text">生活</span>
+  </div>
+  <div class="button-container button-5 hidden-buttons">
+    <img src="IMG/button.png" class="button-image">
+    <span class="button-text">过程</span>
+  </div>
+  <div class="button-container button-6 hidden-buttons">
+    <img src="IMG/button.png" class="button-image">
+    <span class="button-text">摸鱼</span>
   </div>
   <img src="IMG/banner.jpg" class="main-image">
   <h1>fictional-lamp</h1>
   <p>搭建中…… <p>
+  <div class="upload-time">2025-12-31</div>
+  <img src="Figure/2025-12-31.jpg" class="figure-image" data-tags="图 过程" data-tag-1="图" data-tag-2="过程">
+  <div class="figure-tags">图 过程</div>
 
   <script>
     function updateTime() {
@@ -24,15 +55,43 @@
       const year = now.getFullYear();
       const month = now.getMonth() + 1;
       const date = now.getDate();
+      let hours = now.getHours();
+      const minutes = now.getMinutes();
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12;
+      hours = hours ? hours : 12;
+      const minutesStr = minutes < 10 ? '0' + minutes : minutes;
 
       document.getElementById('year').textContent = year;
       document.getElementById('month').textContent = month;
       document.getElementById('date').textContent = '/' + date;
+      document.getElementById('ampm').textContent = hours + ':' + minutesStr + ' ' + ampm;
     }
 
     updateTime();
     setInterval(updateTime, 1000);
+
+    const tbuttonImg = document.getElementById('tbutton-img');
+    const hiddenButtons = document.querySelectorAll('.hidden-buttons');
+    let isVisible = false;
+
+    tbuttonImg.addEventListener('click', function() {
+      if (isVisible) {
+        tbuttonImg.style.transform = 'rotate(250deg)';
+        hiddenButtons.forEach(button => {
+          button.style.display = 'none';
+        });
+        isVisible = false;
+      } else {
+        tbuttonImg.style.transform = 'rotate(90deg)';
+        hiddenButtons.forEach(button => {
+          button.style.display = 'flex';
+        });
+        isVisible = true;
+      }
+    });
   </script>
+  <footer class="footer">© + + ♦ fictional-lamp ♦ + +</footer>
 </body>
 
 

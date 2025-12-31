@@ -1,28 +1,37 @@
 body {
     margin: 0;
     padding: 0;
+    padding-top: 180px;
+    padding-bottom: 40px;
     text-align: center;
     position: relative;
+    background-color: #F3F5F8;
   }
 
   .time-display {
-    position: absolute;
-    top: 4%;
+    position: fixed;
+    top: calc(4% - 15px);
     left: 18%;
     color: white;
     font-family: Arial, sans-serif;
-    z-index: 10;
+    z-index: 100;
     text-align: left;
   }
 
   .year {
     font-size: 1.2vw;
-    margin-bottom: 0.5vh;
+    margin-bottom: calc(0.5vh - 12px);
   }
 
   .month-date {
     display: flex;
     align-items: baseline;
+  }
+
+  .ampm {
+    font-size: 1.2vw;
+    margin-top: calc(0.5vh - 1.5vh);
+    margin-left: 30px;
   }
 
   .month {
@@ -36,9 +45,122 @@ body {
   }
 
   .main-image {
-    display: block;
-    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     max-width: 100%;
     height: auto;
+    z-index: 50;
+  }
+
+  .button-container {
+    position: fixed;
+    top: 35%;
+    left: calc(75% + 100px);
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 75;
+  }
+
+  .button-image {
+    max-width: 100%;
+    height: auto;
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+
+  .button-image:hover {
+    filter: saturate(150%);
+  }
+
+  .button-text {
+    position: absolute;
+    font-weight: 300;
+    font-family: Arial, sans-serif;
+    color: white;
+    user-select: none;
+  }
+
+  .hidden-buttons {
+    display: none;
+  }
+
+  .button-1 {
+    top: 35%;
+  }
+
+  .tbutton {
+    top: 35%;
+    left: calc(75% + 165px);
+  }
+
+  .button-2 {
+    top: calc(35% + 90px);
+  }
+
+  .button-3 {
+    top: calc(35% + 180px);
+  }
+
+  .button-4 {
+    top: calc(35% + 270px);
+  }
+
+  .button-5 {
+    top: calc(35% + 360px);
+  }
+
+  .button-6 {
+    top: calc(35% + 450px);
+  }
+
+  .card-image {
+    display: block;
+    margin: 20px auto 0;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .figure-image {
+    display: block;
+    margin: 0 auto;
+    width: 40%;
+    height: auto;
+  }
+
+  .upload-time {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 8px;
+    font-family: Arial, sans-serif;
+    color: #454470;
+  }
+
+  .figure-tags {
+    text-align: center;
+    margin-top: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    text-shadow: none;
+    color: #a2a0a0;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 10px 0;
+    background-color: #F3F5F8;
+    z-index: 1;
+  }
+
+  .card-first {
+    margin-top: 50px;
   }
   
