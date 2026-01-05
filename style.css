@@ -116,11 +116,31 @@ body {
     top: calc(35% + 450px);
   }
 
+  .card-container {
+    position: relative;
+    display: inline-block;
+    margin: 20px auto 50px;
+    text-align: center;
+  }
+
   .card-image {
     display: block;
-    margin: 20px auto 0;
+    margin: 0 auto;
     max-width: 100%;
     height: auto;
+  }
+
+  .card-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-55%, -38%);
+    color: black;
+    font-family: Arial, sans-serif;
+    font-size: 13.5px;
+    line-height: 1.6;
+    text-align: left;
+    width: 80%;
   }
 
   .figure-image {
