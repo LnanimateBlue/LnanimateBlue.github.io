@@ -141,6 +141,14 @@ body {
     width: fit-content;
   }
 
+  .Content005 {
+    position: relative;
+    display: block;
+    margin: 20px auto 50px;
+    text-align: center;
+    width: fit-content;
+  }
+
   .card-image {
     display: block;
     margin: 0 auto;
