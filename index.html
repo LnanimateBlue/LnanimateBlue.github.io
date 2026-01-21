@@ -16,53 +16,58 @@
     <div class="ampm" id="ampm"></div>
   </div>
   <div class="button-container button-1">
-    <img src="IMG/Button.png" class="button-image">
+    <img src="IMG/Button.png" class="button-image" loading="lazy">
     <span class="button-text">ALL</span>
   </div>
   <div class="button-container tbutton">
-    <img src="IMG/TButton.png" class="button-image" id="tbutton-img">
+    <img src="IMG/TButton.png" class="button-image" id="tbutton-img" loading="lazy">
   </div>
   <div class="button-container button-2 hidden-buttons">
-    <img src="IMG/Button.png" class="button-image">
+    <img src="IMG/Button.png" class="button-image" loading="lazy">
     <span class="button-text">图</span>
   </div>
   <div class="button-container button-3 hidden-buttons">
-    <img src="IMG/Button.png" class="button-image">
+    <img src="IMG/Button.png" class="button-image" loading="lazy">
     <span class="button-text">文</span>
   </div>
   <div class="button-container button-4 hidden-buttons">
-    <img src="IMG/Button.png" class="button-image">
+    <img src="IMG/Button.png" class="button-image" loading="lazy">
     <span class="button-text">生活</span>
   </div>
   <div class="button-container button-5 hidden-buttons">
-    <img src="IMG/Button.png" class="button-image">
+    <img src="IMG/Button.png" class="button-image" loading="lazy">
     <span class="button-text">过程</span>
   </div>
   <div class="button-container button-6 hidden-buttons">
-    <img src="IMG/Button.png" class="button-image">
+    <img src="IMG/Button.png" class="button-image" loading="lazy">
     <span class="button-text">摸鱼</span>
   </div>
-  <img src="IMG/banner.jpg" class="main-image">
+  <img src="IMG/banner.jpg" class="main-image" loading="lazy">
   <h1>fictional-lamp</h1>
   <p>搭建中……</p>
+  <div class="Content006">
+    <div class="upload-time">26-01-21</div>
+    <img src="Figure/26-01-21.jpg" class="figure-image" loading="lazy">
+    <div class="figure-tags">图 过程</div>
+  </div>
   <div class="Content005">
     <div class="upload-time">26-01-19</div>
-    <img src="Figure/26-01-19.jpg" class="figure-image">
+    <img src="Figure/26-01-19.jpg" class="figure-image" loading="lazy">
     <div class="figure-tags">图 过程</div>
   </div>
   <div class="Content004">
     <div class="upload-time">26-01-16</div>
-    <img src="Figure/26-01-16.jpg" class="figure-image">
+    <img src="Figure/26-01-16.jpg" class="figure-image" loading="lazy">
     <div class="figure-tags">图</div>
   </div>
   <div class="Content003">
     <div class="upload-time">26-01-07</div>
-    <img src="Figure/26-01-07.jpg" class="figure-image">
+    <img src="Figure/26-01-07.jpg" class="figure-image" loading="lazy">
     <div class="figure-tags">图 过程</div>
   </div>
   <div class="Content002">
     <div class="upload-time">2026-01-05</div>
-    <img src="IMG/card.jpg" class="card-image">
+    <img src="IMG/card.jpg" class="card-image" loading="lazy">
     <div class="card-text">
       我去年给自己定了一个小计划<br>
       每天写一千字<br>
@@ -80,8 +85,13 @@
   </div>
   <div class="Content001">
     <div class="upload-time">2025-12-31</div>
-    <img src="Figure/2025-12-31.jpg" class="figure-image">
+    <img src="Figure/2025-12-31.jpg" class="figure-image" loading="lazy">
     <div class="figure-tags">图 过程</div>
+  </div>
+
+  <div class="pagination">
+    <button class="page-btn active" data-page="1">1</button>
+    <button class="page-btn" data-page="2">2</button>
   </div>
 
   <script>
@@ -125,6 +135,56 @@
         isVisible = true;
       }
     });
+
+    // 页码控制逻辑
+    const contents = [
+      document.querySelector('.Content006'),
+      document.querySelector('.Content001'),
+      document.querySelector('.Content002'),
+      document.querySelector('.Content003'),
+      document.querySelector('.Content004'),
+      document.querySelector('.Content005')
+    ];
+
+    function showPage(page) {
+      if (page === 1) {
+        // 第一页：只显示最新的Content006
+        contents.forEach((content, index) => {
+          if (index === 0) {
+            content.style.display = 'block';
+          } else {
+            content.style.display = 'none';
+          }
+        });
+      } else if (page === 2) {
+        // 第二页：显示Content001-005
+        contents.forEach((content, index) => {
+          if (index >= 1 && index <= 5) {
+            content.style.display = 'block';
+          } else {
+            content.style.display = 'none';
+          }
+        });
+      }
+
+      document.querySelectorAll('.page-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.querySelector(`.page-btn[data-page="${page}"]`).classList.add('active');
+
+      // 滚动到网页顶端
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.querySelectorAll('.page-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const page = parseInt(this.getAttribute('data-page'));
+        showPage(page);
+      });
+    });
+
+    // 初始显示第一页
+    showPage(1);
   </script>
   <footer class="footer">© + + ♦ fictional-lamp ♦ + +</footer>
 </body>
