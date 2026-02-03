@@ -45,6 +45,19 @@
   <img src="IMG/banner.jpg" class="main-image" loading="lazy">
   <h1>fictional-lamp</h1>
   <p>搭建中……</p>
+  <div class="Content007">
+    <div class="upload-time">26-02-03</div>
+    <div class="image-container">
+      <img src="Figure/sd-mg-.jpg" class="figure-image" id="design-image" loading="lazy">
+      <div class="toggle-button toggle-btn" id="toggle-btn">
+        <img src="IMG/TButton.png" class="button-image" loading="lazy">
+      </div>
+      <div class="toggle-button toggle-back-btn" id="toggle-back-btn" style="display: none;">
+        <img src="IMG/TButton.png" class="button-image" loading="lazy">
+      </div>
+    </div>
+    <div class="figure-tags">图 服设</div>
+  </div>
   <div class="Content006">
     <div class="upload-time">26-01-21</div>
     <img src="Figure/26-01-21.jpg" class="figure-image" loading="lazy">
@@ -136,21 +149,41 @@
       }
     });
 
+    // 图片切换按钮功能
+    const toggleBtn = document.getElementById('toggle-btn');
+    const toggleBackBtn = document.getElementById('toggle-back-btn');
+    const designImage = document.getElementById('design-image');
+
+    if (toggleBtn && toggleBackBtn && designImage) {
+      toggleBtn.addEventListener('click', function() {
+        designImage.src = 'Figure/sd-cm.jpg';
+        toggleBtn.style.display = 'none';
+        toggleBackBtn.style.display = 'block';
+      });
+
+      toggleBackBtn.addEventListener('click', function() {
+        designImage.src = 'Figure/sd-mg-.jpg';
+        toggleBackBtn.style.display = 'none';
+        toggleBtn.style.display = 'block';
+      });
+    }
+
     // 页码控制逻辑
     const contents = [
+      document.querySelector('.Content007'),
       document.querySelector('.Content006'),
-      document.querySelector('.Content001'),
-      document.querySelector('.Content002'),
-      document.querySelector('.Content003'),
+      document.querySelector('.Content005'),
       document.querySelector('.Content004'),
-      document.querySelector('.Content005')
+      document.querySelector('.Content003'),
+      document.querySelector('.Content002'),
+      document.querySelector('.Content001')
     ];
 
     function showPage(page) {
       if (page === 1) {
-        // 第一页：只显示最新的Content006
+        // 第一页：显示最新的Content007和Content006
         contents.forEach((content, index) => {
-          if (index === 0) {
+          if (index === 0 || index === 1) {
             content.style.display = 'block';
           } else {
             content.style.display = 'none';
@@ -159,7 +192,7 @@
       } else if (page === 2) {
         // 第二页：显示Content001-005
         contents.forEach((content, index) => {
-          if (index >= 1 && index <= 5) {
+          if (index >= 2 && index <= 6) {
             content.style.display = 'block';
           } else {
             content.style.display = 'none';
