@@ -45,6 +45,11 @@
   <img src="IMG/banner.jpg" class="main-image" loading="lazy">
   <h1>fictional-lamp</h1>
   <p>搭建中……</p>
+  <div class="Content008">
+    <div class="upload-time">26-02-14</div>
+    <img src="Figure/26-02-04-S.jpg" class="figure-image" loading="lazy">
+    <div class="figure-tags">图 情人节</div>
+  </div>
   <div class="Content007">
     <div class="upload-time">26-02-03</div>
     <div class="image-container">
@@ -56,7 +61,7 @@
         <img src="IMG/TButton.png" class="button-image" loading="lazy">
       </div>
     </div>
-    <div class="figure-tags">图 服设</div>
+    <div class="figure-tags">图 设计</div>
   </div>
   <div class="Content006">
     <div class="upload-time">26-01-21</div>
@@ -170,6 +175,7 @@
 
     // 页码控制逻辑
     const contents = [
+      document.querySelector('.Content008'),
       document.querySelector('.Content007'),
       document.querySelector('.Content006'),
       document.querySelector('.Content005'),
@@ -181,7 +187,7 @@
 
     function showPage(page) {
       if (page === 1) {
-        // 第一页：显示最新的Content007和Content006
+        // 第一页：显示最新的Content008和Content007
         contents.forEach((content, index) => {
           if (index === 0 || index === 1) {
             content.style.display = 'block';
@@ -190,7 +196,7 @@
           }
         });
       } else if (page === 2) {
-        // 第二页：显示Content001-005
+        // 第二页：显示Content006-001
         contents.forEach((content, index) => {
           if (index >= 2 && index <= 6) {
             content.style.display = 'block';
