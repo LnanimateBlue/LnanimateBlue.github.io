@@ -48,7 +48,7 @@
   <div class="Content008">
     <div class="upload-time">26-02-14</div>
     <img src="Figure/26-02-04-S.jpg" class="figure-image" loading="lazy">
-    <div class="figure-tags">图 情人节</div>
+    <div class="figure-tags">图</div>
   </div>
   <div class="Content007">
     <div class="upload-time">26-02-03</div>
@@ -61,7 +61,7 @@
         <img src="IMG/TButton.png" class="button-image" loading="lazy">
       </div>
     </div>
-    <div class="figure-tags">图 设计</div>
+    <div class="figure-tags">图</div>
   </div>
   <div class="Content006">
     <div class="upload-time">26-01-21</div>
@@ -187,18 +187,18 @@
 
     function showPage(page) {
       if (page === 1) {
-        // 第一页：显示最新的Content008和Content007
+        // 第一页：显示Content005后新增的Content（006、007、008）
         contents.forEach((content, index) => {
-          if (index === 0 || index === 1) {
+          if (index === 0 || index === 1 || index === 2) {
             content.style.display = 'block';
           } else {
             content.style.display = 'none';
           }
         });
       } else if (page === 2) {
-        // 第二页：显示Content006-001
+        // 第二页：显示最初的五条Content（001到005）
         contents.forEach((content, index) => {
-          if (index >= 2 && index <= 6) {
+          if (index >= 3 && index <= 7) {
             content.style.display = 'block';
           } else {
             content.style.display = 'none';
