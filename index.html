@@ -45,10 +45,15 @@
   <img src="IMG/banner.jpg" class="main-image" loading="lazy">
   <h1>fictional-lamp</h1>
   <p>搭建中……</p>
+  <div class="Content009">
+    <div class="upload-time">26-02-28</div>
+    <img src="Figure/IMG_0591.jpg" class="figure-image" loading="lazy">
+    <div class="figure-tags">图</div>
+  </div>
   <div class="Content008">
     <div class="upload-time">26-02-14</div>
     <img src="Figure/26-02-04-S.jpg" class="figure-image" loading="lazy">
-    <div class="figure-tags">图</div>
+    <div class="figure-tags">图 情人节</div>
   </div>
   <div class="Content007">
     <div class="upload-time">26-02-03</div>
@@ -175,6 +180,7 @@
 
     // 页码控制逻辑
     const contents = [
+      document.querySelector('.Content009'),
       document.querySelector('.Content008'),
       document.querySelector('.Content007'),
       document.querySelector('.Content006'),
@@ -187,9 +193,9 @@
 
     function showPage(page) {
       if (page === 1) {
-        // 第一页：显示Content005后新增的Content（006、007、008）
+        // 第一页：显示Content005后新增的Content（006、007、008、009）
         contents.forEach((content, index) => {
-          if (index === 0 || index === 1 || index === 2) {
+          if (index === 0 || index === 1 || index === 2 || index === 3) {
             content.style.display = 'block';
           } else {
             content.style.display = 'none';
@@ -198,7 +204,7 @@
       } else if (page === 2) {
         // 第二页：显示最初的五条Content（001到005）
         contents.forEach((content, index) => {
-          if (index >= 3 && index <= 7) {
+          if (index >= 4 && index <= 8) {
             content.style.display = 'block';
           } else {
             content.style.display = 'none';
