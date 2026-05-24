@@ -45,6 +45,16 @@
   <img src="IMG/banner.jpg" class="main-image" loading="lazy">
   <h1>fictional-lamp</h1>
   <p>搭建中……</p>
+  <div class="Content011">
+    <div class="upload-time">26-05-24</div>
+    <img src="Figure/26-05-24.jpg" class="figure-image" loading="lazy">
+    <div class="figure-tags">图</div>
+  </div>
+  <div class="Content012">
+    <div class="upload-time">26-04-11</div>
+    <img src="Figure/26-04-11-2.png" class="figure-image" loading="lazy">
+    <div class="figure-tags">图</div>
+  </div>
   <div class="Content010">
     <div class="upload-time">26-03-11</div>
     <img src="Figure/IMG_0592.jpg" class="figure-image" loading="lazy">
@@ -120,6 +130,7 @@
   <div class="pagination">
     <button class="page-btn active" data-page="1">1</button>
     <button class="page-btn" data-page="2">2</button>
+    <button class="page-btn" data-page="3">3</button>
   </div>
 
   <script>
@@ -185,6 +196,8 @@
 
     // 页码控制逻辑
     const contents = [
+      document.querySelector('.Content012'),
+      document.querySelector('.Content011'),
       document.querySelector('.Content010'),
       document.querySelector('.Content009'),
       document.querySelector('.Content008'),
@@ -199,18 +212,27 @@
 
     function showPage(page) {
       if (page === 1) {
-        // 第一页：显示Content005后新增的Content（006、007、008、009、010）
+        // 第一页：显示最新的五条Content（012、011、010、009、008）
         contents.forEach((content, index) => {
-          if (index === 0 || index === 1 || index === 2 || index === 3 || index === 4) {
+          if (index >= 0 && index <= 4) {
             content.style.display = 'block';
           } else {
             content.style.display = 'none';
           }
         });
       } else if (page === 2) {
-        // 第二页：显示最初的五条Content（001到005）
+        // 第二页：显示中间的五条Content（007、006、005、004、003）
         contents.forEach((content, index) => {
           if (index >= 5 && index <= 9) {
+            content.style.display = 'block';
+          } else {
+            content.style.display = 'none';
+          }
+        });
+      } else if (page === 3) {
+        // 第三页：显示最后的两条Content（002、001）
+        contents.forEach((content, index) => {
+          if (index >= 10 && index <= 11) {
             content.style.display = 'block';
           } else {
             content.style.display = 'none';
